@@ -53,7 +53,6 @@ implements AlunoOperacoes {
 		e.setBairro("centro");
 		e.setCidade("Concordia");
 		e.setRua("Victor Sopelsa");
-		enderecoRepository.save(e);
 	 
 		Optional<Turma> obj = turmaRepository.findById(turma);
 		Turma turmaEncontrada = new Turma();
@@ -93,9 +92,7 @@ implements AlunoOperacoes {
 
 	@Override
 	public ResponseEntity<Object> salvar(@RequestBody Aluno aluno) {
-		Endereco e = aluno.getEndereco();
-		enderecoRepository.save(e);
-		aluno.setEndereco(e);
+	 
 		alunoRepository.save(aluno);
 		return ResponseEntity.ok(aluno);
 	}

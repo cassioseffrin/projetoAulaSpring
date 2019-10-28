@@ -6,29 +6,33 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import com.mysql.cj.Session;
 import com.mysql.cj.xdevapi.SessionFactory;
 
+import edu.cassio.aula.entidades.Curso;
 import edu.cassio.aula.entidades.Disciplina;
 import edu.cassio.aula.entidades.Turma;
 import edu.cassio.aula.repositorios.AlunoRepository;
+import edu.cassio.aula.repositorios.CursoRepository;
 
-public class TurmaDisciplina {
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class CursoTeste {
+
 	@Autowired
-	private AlunoRepository alunoRepository;
+	private CursoRepository cursoRepository;
+
 	@Test
 	public void test() {
-		 Turma t = new Turma();
-		 t.setNome("Info");
-		 Disciplina d = new Disciplina();
-		 Collection<Turma> turmaCollection = new ArrayList<>();
-		 turmaCollection.add(t);
- 
-		 d.setCargaHoraria(60);
-		 d.setNome("Frameworks");
-		 assertNotNull(turmaCollection);
+		Curso c = new Curso();
+		c.setNome("Engenharia de software");
+		cursoRepository.save(c);
+
 	}
 
 }

@@ -9,6 +9,10 @@ Adicionar as seguintes dependências:
 4. Lombok
 
 
+https://github.com/cassioseffrin/projetoAulaSpring
+
+
+
 
 #iniciando uma base de dados no mysql zerada:
 

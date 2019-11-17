@@ -1,0 +1,10 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8090/eureka/
+      
+server:
+#  port: 8093
+  port: ${PORT:${SERVER_PORT:0}}
+  
+substantivos: barco, livro, voto, assento, mochila, bicicleta, carro

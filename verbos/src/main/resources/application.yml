@@ -1,0 +1,10 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8090/eureka/
+      
+server:
+#  port: 8095
+  port: ${PORT:${SERVER_PORT:0}}
+  
+verbos: correu, sabia, tinha, viu, comprou, vendeu, alugou, derrubou

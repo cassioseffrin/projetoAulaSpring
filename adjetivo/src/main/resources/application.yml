@@ -1,0 +1,10 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8090/eureka/
+      
+server:
+#  port: 8091
+  port: ${PORT:${SERVER_PORT:0}}
+  
+adjetivos: linda, feia, fabulosa, feiosa, deslumbrante, perfumada

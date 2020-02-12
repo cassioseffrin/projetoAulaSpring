@@ -1,0 +1,7 @@
+# remove o cache
+spring.thymeleaf.cache: false
+
+# O serviços Zuul-proxied podem ser chamados /services/sujeito, /services/verbo, etc.
+zuul:
+  prefix: /api
+  

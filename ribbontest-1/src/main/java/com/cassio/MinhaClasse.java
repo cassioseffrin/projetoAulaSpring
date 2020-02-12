@@ -14,6 +14,6 @@ public class MinhaClasse {
 		ServiceInstance instance = loadBalancer.choose("subject");
 		URI subjectUri = URI.create(String.format("http://%s:%s", 
 				instance.getHost(), instance.getPort()));
-		// ...fazer o chamda 
+		// ...fazer chamada 
 	}
 }

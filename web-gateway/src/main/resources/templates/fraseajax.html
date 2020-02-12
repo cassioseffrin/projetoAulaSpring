@@ -1,0 +1,145 @@
+<html>
+<head>
+ 
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+
+	<div class="container">
+		<div class="starter-template">
+			<h1>Frase usando Ajax e o gateway Zuul</h1>
+			<p class="lead">
+				<span id="sujeito"></span> <span id="verbo"></span> <span
+					id="artigo"></span> <span id="adjetivo"></span> <span
+					id="substantivo"></span>
+			</p>
+		</div>
+		<div id="error" class="text-danger"></div>
+
+	</div>
+
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+	<script type="text/javascript">
+	
+
+	
+	
+	function getHeader (url){
+		var header = {
+				  "async": true,
+				  "crossDomain": true,
+				  "url": url,
+				  "method": "GET",
+				  "headers": {
+				    "Accept": "*/*"
+				  }
+				};
+		return header;
+		
+	}
+	var prefix = "http://localhost/api";
+	
+	
+	
+	$.ajax(getHeader(prefix+'/sujeito')).done(function (response) {
+		  console.log("resposta: "+response);
+		  mostrarSujeito(response);
+		});
+	
+	
+			$.ajax(getHeader(prefix+'/verbo')).done(function (response) {
+			  console.log("resposta: "+response);
+			  mostrarVerbo(response);
+			});
+			$.ajax(getHeader(prefix+'/artigo')).done(function (response) {
+				  console.log("resposta: "+response);
+				  mostrarArtigo(response);
+				});
+	
+			$.ajax(getHeader(prefix+'/adjetivo')).done(function (response) {
+				  console.log("resposta: "+response);
+				  mostrarAdjetivo(response);
+				});
+			
+			$.ajax(getHeader(prefix+'/substantivo')).done(function (response) {
+				  console.log("resposta: "+response);
+				  mostrarSubstantivo(response);
+				});
+	
+	/* fetch('http://localhost:63429/').then(res => {
+		var resText = res.text();
+		try {
+		var resJSON = JSON.parse(resText);
+		} catch(e) {
+		 console.log(e);
+		return;
+		}
+	 
+		}); */
+		
+ 	 
+	   
+	   
+ 
+ 
+	function mostrarSujeito(palavra='zero') {
+ 
+		$("#sujeito").html(palavra);
+	}
+	
+	function mostrarVerbo(palavra) {
+		$("#verbo").html(palavra);
+	}
+	
+	function mostrarArtigo(palavra) {
+	 
+		$("#artigo").html(palavra);
+	}
+	
+	function mostrarAdjetivo(palavra) {
+		$("#adjetivo").html(palavra);
+	}
+	
+	function mostrarSubstantivo(palavra) {
+		$("#substantivo").html(palavra);
+	}
+	
+ 
+	
+	function displayErrorsujeito(x, s, m) {
+		err(x, s, m, "sujeito");
+	}
+	
+	function displayErrorverbo(x, s, m) {
+		err(x, s, m, "verbo");
+	}
+	
+	function displayErrorartigo(x, s, m) {
+		err(x, s, m, "artigo");
+	}
+	
+	function displayErroradjetivo(x, s, m) {
+		err(x, s, m, "adjetivo");
+	}
+	
+	function displayErrorsubstantivo(x, s, m) {
+		err(x, s, m, "substantivo");
+	}
+	
+ 
+	function err(xhr, status, msg, prefix) {
+ 
+		var text = xhr.responseText;
+		var emsg = "<p><b>falha na requisicao AJAX  " + prefix + ": " + xhr.status + " " + msg + "</b><br/></p>";
+	
+		$("#error").append(emsg);
+		$("#error").show();
+	}
+</script>
+
+</body>
+</html>
